@@ -84,6 +84,8 @@
   .s-aplicado   { background: #3a3a10; color: var(--accent); border-color: #5a5a10; }
   .s-cerrado    { background: #1a3a1a; color: #33ff88; border-color: #1a5a1a; }
   .s-perdido    { background: #3a1a1a; color: var(--red); border-color: #5a1a1a; }
+  .s-cita       { background: #1a2a3a; color: #40c0ff; border-color: #1a4a6a; }
+  .s-frio       { background: #1a2a3a; color: #88aacc; border-color: #1a3a5a; }
 
   /* EMPTY */
   .empty { text-align: center; padding: 60px 20px; color: var(--muted); }
@@ -204,7 +206,7 @@
 
 <script>
 // ── SUPABASE CONFIG ──────────────────────────────────────────────
-const SUPABASE_URL = 'https://piaeuqrovlqjayuboqww.supabase.co';
+const SUPABASE_URL = 'https://piauqrovlqjayuboquww.supabase.co';
 const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBpYWV1cXJvdmxxamF5dWJvcXd3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI3Njc3MzIsImV4cCI6MjA4ODM0MzczMn0.S6AWuUmuuRkFE52DjqfGyNqZZEl0RZbzUKxNQYZdovE';
 const { createClient } = supabase;
 const db = createClient(SUPABASE_URL, SUPABASE_KEY);
@@ -215,19 +217,24 @@ const STATUSES = [
   { key: 'contactado', label: '💬 Contactado',          cls: 's-contactado' },
   { key: 'llamar',     label: '📞 Llamarle',            cls: 's-llamar' },
   { key: 'seguir',     label: '🔁 Dar seguimiento',     cls: 's-seguir' },
+  { key: 'cita',       label: '📅 Cita agendada',       cls: 's-cita' },
   { key: 'aplicado',   label: '✅ Aplicó / En trámite', cls: 's-aplicado' },
   { key: 'cerrado',    label: '🏆 Cerrado',             cls: 's-cerrado' },
+  { key: 'frio',       label: '🥶 Frío',                cls: 's-frio' },
   { key: 'perdido',    label: '❌ Perdido',              cls: 's-perdido' },
 ];
 
 const TABS = [
-  { key: 'todos',    label: 'Todos' },
-  { key: 'llamar',   label: '📞 Llamar' },
-  { key: 'seguir',   label: '🔁 Seguimiento' },
-  { key: 'nuevo',    label: '🆕 Nuevos' },
-  { key: 'aplicado', label: '✅ En trámite' },
-  { key: 'cerrado',  label: '🏆 Cerrados' },
-  { key: 'perdido',  label: '❌ Perdidos' },
+  { key: 'todos',      label: 'Todos' },
+  { key: 'nuevo',      label: '🆕 Nuevos' },
+  { key: 'contactado', label: '💬 Contactados' },
+  { key: 'llamar',     label: '📞 Llamar' },
+  { key: 'seguir',     label: '🔁 Seguimiento' },
+  { key: 'cita',       label: '📅 Citas' },
+  { key: 'aplicado',   label: '✅ En trámite' },
+  { key: 'cerrado',    label: '🏆 Cerrados' },
+  { key: 'frio',       label: '🥶 Fríos' },
+  { key: 'perdido',    label: '❌ Perdidos' },
 ];
 
 let leads = [];
